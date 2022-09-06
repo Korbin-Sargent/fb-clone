@@ -30,7 +30,7 @@ function Header() {
         <div className="flex items-center ml-2 rounded-full bg-gray-100 p-2">
           <MagnifyingGlassIcon className="h-6 text-gray-600" />
           <input
-            className="flex ml-2 items-center bg-transparent outline-none placeholder-gray-500 flex-shrink"
+            className="hidden md:inline-flex ml-2 items-center bg-transparent outline-none placeholder-gray-500 flex-shrink"
             type="text"
             placeholder="Search Feed"
           />
@@ -50,6 +50,11 @@ function Header() {
       </div>
 
       {/* Header Right */}
+      <div>
+        {/* Proile picture */}
+
+        <p className="whitespace-nowrap font-semibold pr-3">Korbin Sargent</p>
+      </div>
     </div>
   );
 }
