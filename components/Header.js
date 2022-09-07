@@ -3,11 +3,12 @@ import Image from "next/image";
 import HeaderIcon from "./HeaderIcon";
 import {
   BellIcon,
-  ChatIcon,
+  ChatBubbleLeftEllipsisIcon,
   ChevronDownIcon,
   HomeIcon,
+  Square2StackIcon,
   UserGroupIcon,
-  ViewGridIcon,
+  Squares2X2Icon,
 } from "@heroicons/react/24/solid";
 import {
   FlagIcon,
@@ -50,10 +51,14 @@ function Header() {
       </div>
 
       {/* Header Right */}
-      <div>
+      <div className="flex items-center sm:space-x-2 justify-end">
         {/* Proile picture */}
 
         <p className="whitespace-nowrap font-semibold pr-3">Korbin Sargent</p>
+        <Squares2X2Icon className="icon" />
+        <ChatBubbleLeftEllipsisIcon className="icon" />
+        <BellIcon className="icon" />
+        <ChevronDownIcon className="icon" />
       </div>
     </div>
   );
