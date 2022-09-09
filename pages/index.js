@@ -16,6 +16,7 @@ export default function Home({ session }) {
 
       <main>
         {/* sidebar */}
+        <Sidebar />
         {/* feed */}
         {/* widgets */}
       </main>
