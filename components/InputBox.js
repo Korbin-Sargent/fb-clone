@@ -2,14 +2,32 @@ import { FaceSmileIcon } from "@heroicons/react/24/outline";
 import { CameraIcon, VideoCameraIcon } from "@heroicons/react/24/solid";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
-import React from "react";
+import { React, useRef } from "react";
+import { collection, addDoc, serverTimestamp, setDoc, doc } from "firebase/firestore";
+import { storageRef } from "../firebase";
+import firebase from "firebase";
 
 function InputBox() {
   const { data: session } = useSession();
+  const inputRef = useRef(null);
 
   const sendPost = (e) => {
     e.preventDefault();
-  };
+    // block post if input field is empty
+    if (!inputRef.current.value) return;
+
+    await addDoc(collection(db, "userPosts"), {
+      message: inputRef.current.value,
+      name: session.user.name,
+      email: session.user.email,
+      image: session.user.image,
+      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+    
+      console.log("Document written with ID: ", docRef.id);
+} catch (e) {
+  console.error("Error adding document: ", e);
+}
+    });
 
   return (
     <div className="bg-white p-2 rounded-2xl shadow-md text-gray-500 font-medium mt-6">
@@ -25,6 +43,7 @@ function InputBox() {
           <input
             className="rounded-full h-12 bg-gray-100 flex-grow px-5 focus:outline-none"
             type="text"
+            ref={inputRef}
             placeholder={`What's on your mind, ${session.user.name}?`}
           />
           <button hidden type="submit" onClick={sendPost}>
