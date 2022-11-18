@@ -17,5 +17,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 // Initilaize cloud firestore and get a reference to storage
-const storage = getStorage(app);
-const storageRef = ref(storage);
+export const storage = getStorage(app);
+export const storageRef = getFirestore(app);

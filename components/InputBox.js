@@ -12,6 +12,7 @@ function InputBox() {
   const inputRef = useRef(null);
 
   const sendPost = (e) => {
+    //Prevent page from refreshing
     e.preventDefault();
     // block post if input field is empty
     if (!inputRef.current.value) return;
@@ -21,12 +22,7 @@ function InputBox() {
       name: session.user.name,
       email: session.user.email,
       image: session.user.image,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    
-      console.log("Document written with ID: ", docRef.id);
-} catch (e) {
-  console.error("Error adding document: ", e);
-}
+      timestamp: serverTimestamp(),
     });
 
   return (
@@ -70,6 +66,7 @@ function InputBox() {
       </div>
     </div>
   );
+}
 }
 
 export default InputBox;
