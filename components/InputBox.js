@@ -6,6 +6,7 @@ import { React, useRef } from "react";
 import { collection, addDoc, serverTimestamp, setDoc, doc } from "firebase/firestore";
 import { storageRef } from "../firebase";
 import firebase from "firebase";
+import firestore from "firstore";
 
 function InputBox() {
   const { data: session } = useSession();
