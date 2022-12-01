@@ -18,19 +18,19 @@ function InputBox() {
   const { data: session } = useSession();
   const inputRef = useRef(null);
 
-  // const sendPost = (e) => {
-  //   //Prevent page from refreshing
-  //   e.preventDefault();
-  //   // block post if input field is empty
-  //   if (!inputRef.current.value) return;
+  const sendPost = (e) => {
+    //Prevent page from refreshing
+    e.preventDefault();
+    // block post if input field is empty
+    if (!inputRef.current.value) return;
 
-  //   await addDoc(collection(db, "userPosts"), {
-  //     message: inputRef.current.value,
-  //     name: session.user.name,
-  //     email: session.user.email,
-  //     image: session.user.image,
-  //     timestamp: serverTimestamp(),
-  //   });
+    await addDoc(collection(db, "userPosts"), {
+      message: inputRef.current.value,
+      name: session.user.name,
+      email: session.user.email,
+      image: session.user.image,
+      timestamp: serverTimestamp(),
+    });
 
   <div className="bg-white p-2 rounded-2xl shadow-md text-gray-500 font-medium mt-6">
     <div className="flex space-x-4 p-4 items-center">
