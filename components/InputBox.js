@@ -3,16 +3,16 @@ import { CameraIcon, VideoCameraIcon } from "@heroicons/react/24/solid";
 import { useSession } from "next-auth/react";
 import Image from "next/image";
 import { React, useRef } from "react";
-// import {
-//   collection,
-//   addDoc,
-//   serverTimestamp,
-//   setDoc,
-//   doc,
-// } from "firebase/firestore";
-// import { storageRef } from "../firebase";
-// import firebase from "firebase";
-// import firestore from "firstore";
+import {
+  collection,
+  addDoc,
+  serverTimestamp,
+  setDoc,
+  doc,
+} from "firebase/firestore";
+import { storageRef } from "../firebase";
+import firebase from "firebase";
+import firestore from "firstore";
 
 function InputBox() {
   const { data: session } = useSession();
